@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script> 
+let win = 0
+  let tie = 0
+  let loss = 0
+  const answer = ['r', 'p', 's']
+  for (let i = 0; i < 10; i++) {
+    let userchoice = prompt('Choose between: r,p,s').toLowerCase()
+    let compchoice = answer[Math.floor(Math.random() * 3)]
+    if (!(userchoice == "r") && !(userchoice == "p") && !(userchoice == "s")) {
+      alert('Please only type "r" "p" or "s"')
+      i--
+    }
+    if (userchoice === 'r') {
+      if (compchoice === 'r') {
+        tie++;
+        alert("It's a tie." + "\nwins = " + win + "\nties = " + tie + "\nlosses = " + loss);
+      } else if (compchoice === 's') {
+        win++;
+        alert("You win!");
+      } else {
+        loss++;
+        alert("You lose!");
+      }
+    } else if (userchoice === 's') {
+      if (compchoice === 'r') {
+        alert("You lose!");
+        loss++;
+      } else if (compchoice === 'p') {
+        alert("You win!");
+        win++;
+      } else {
+        alert("It's a tie.");
+        tie++;
+      }
+      //user is paper
+    } else if (userchoice === 'p') {
+      if (compchoice === 'r') {
+        alert("You win!");
+        win++;
+      } else if (compchoice === 'p') {
+        alert("It's a tie.");
+        tie++;
+      } else {
+        alert("You lose!");
+        loss++;
+      }
+    }
+  }
+  alert("wins = " + win + "\nties = " + tie + "\nlosses = " + loss);
+     </script>
+</body>
+
+</html>
